@@ -1,0 +1,115 @@
+
+<div class="mdl-grid">
+  <div class="mdl-cell mdl-cell--12-col">
+    <form class="form-inline" (ngSubmit)="onSearch()">
+      <mdl-textfield type="text" name="q" label="검색어 입력 ..." [(ngModel)]="q" autofocus></mdl-textfield>
+      <button mdl-button type="submit" mdl-button-type="raised" mdl-colored="primary" mdl-ripple>
+        {{'search'|translate}}
+      </button>
+      <!-- <button type="button" class="btn btn-outline-info" (click)="clearTerm()">{{'clear'}}</button> -->
+    </form>
+  </div>
+</div>
+
+<mdl-progress [indeterminate]="indeterminate" [hidden]="hideLoadingElement"></mdl-progress>
+
+<div class="mdl-grid" [hidden]="hideResultElement">
+  <div class="mdl-cell mdl-cell--12-col">
+    <mdl-tabs mdl-ripple mdl-tab-active-index="0" (mdl-tab-active-changed)="tabChanged($event)">
+      <mdl-tab-panel mdl-tab-panel-title="CityLib" [disabled]="disableCityLib">
+        <mdl-tab-panel-title>
+          <mdl-icon class="mdl-color-text--primary">person</mdl-icon><span>시립 도서관</span>
+        </mdl-tab-panel-title>
+        <mdl-tab-panel-content>
+          <table class="table">
+            <thead>
+                <tr>
+                    <th>청구기호</th>
+                    <th>제목</th>
+                    <th>저자</th>
+                    <th>출판사</th>
+                    <th>등록번호</th>
+                    <th>자료실</th>
+                    <th>등록번호</th>
+                    <th>ISBN</th>
+                    <th>소장처</th>
+                    <th>반납일</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let row of combinedResult.city.books">
+                  <td>{{row.get('CALL_NO')}}</td>
+                  <td>{{row.get('TITLE_INFO')}}</td>
+                  <td>{{row.get('AUTHOR')}}</td>
+                  <td>{{row.get('PUBLISHER')}}</td>
+                  <td>{{row.get('REG_NO')}}</td>
+                  <td>{{row.get('SHELF_LOC_NAME')}}</td>
+                  <td>{{row.get('REC_KEY')}}</td>
+                  <td>{{row.get('LIB_CODE')}}</td>
+                  <td>{{row.get('LIB_NAME')}}</td>
+                  <td>{{row.get('RETURN_PLAN_DATE')}}</td>
+                </tr>
+            </tbody>
+          </table>
+        </mdl-tab-panel-content>
+      </mdl-tab-panel>
+      <mdl-tab-panel mdl-tab-panel-title="PublicLib" [disabled]="disablePublicLib">
+        <mdl-tab-panel-title>
+          <mdl-icon class="mdl-color-text--primary">person</mdl-icon><span>공공 도서관</span>
+        </mdl-tab-panel-title>
+        <mdl-tab-panel-content>
+          <table class="table">
+            <thead>
+                <tr>
+                    <th>번호</th>
+                    <th>표제</th>
+                    <th>저자</th>
+                    <th>출판사</th>
+                    <th>발행년도</th>
+                    <th>자료실</th>
+                    <th>자료구분</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let row of combinedResult.public.books">
+                  <td>{{row.get('CALL_NO')}}</td>
+                  <td>{{row.get('TITLE_INFO')}}</td>
+                  <td>{{row.get('AUTHOR')}}</td>
+                  <td>{{row.get('PUBLISHER')}}</td>
+                  <td>{{row.get('PUBLISHER_YEAR')}}</td>
+                  <td>{{row.get('SHELF_LOC_NAME')}}</td>
+                  <td>{{row.get('REC_KEY')}}</td>
+                </tr>
+            </tbody>
+          </table>
+        </mdl-tab-panel-content>
+      </mdl-tab-panel>
+      <mdl-tab-panel mdl-tab-panel-title="KepcoLib" [disabled]="disableKepcoLib">
+        <mdl-tab-panel-title>
+          <mdl-icon class="mdl-color-text--primary">person</mdl-icon><span>한전 도서관</span>
+        </mdl-tab-panel-title>
+        <mdl-tab-panel-content>
+          <ul>
+            <li>Robert</li>
+            <li>Renly</li>
+            <li>Stanis</li>
+            <li>Joffrey</li>
+            <li>Myrcella</li>
+            <li>Tommen</li>
+          </ul>
+          </mdl-tab-panel-content>
+      </mdl-tab-panel>
+    </mdl-tabs>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-md-6" *ngFor="let post of posts ">
+    <div class="card card-block">
+      <h4 class="card-title">{{post.title}}</h4>
+      <h6 class="card-subtitle text-muted">{{post.createdAt|date:'short'}}</h6>
+      <p class="card-text">{{post.content}}</p>
+    </div>
+  </div>
+</div>

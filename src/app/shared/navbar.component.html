@@ -1,0 +1,25 @@
+
+<mdl-layout-header-row>
+  <!-- Title -->
+  <mdl-layout-title>
+    <a class="mdl-navigation__link" [routerLink]="['/home']" ><i class="fa fa-home"></i> ANGULAR 2 Study Site </a>
+  </mdl-layout-title>
+  <div class="mdl-layout-spacer"></div>
+  <mdl-textfield type="text" icon="search"></mdl-textfield>
+  <nav class="mdl-navigation">
+    <a [appShowAuthed]="false" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" [routerLink]="['/signin']">{{'signin'|translate}}</a>
+    <a [appShowAuthed]="false" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" [routerLink]="['/signup']">{{'signup'|translate}}</a>
+    <button [appShowAuthed]="true" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" (click)="logout()">{{'logout'|translate}}</button>
+  </nav>
+</mdl-layout-header-row>
+<!-- Bottom row, not visible on scroll -->
+<mdl-layout-header-row>
+  <mdl-layout-spacer></mdl-layout-spacer>
+  <!-- Navigation -->
+  <nav class="mdl-navigation">
+    <a class="mdl-navigation__link" [routerLinkActive]="['active']" [routerLink]="['/posts']"> {{'posts'|translate}} </a>
+    <a class="mdl-navigation__link" [routerLinkActive]="['active']" [routerLink]="['/posts', 'new']"> {{'new-post'|translate}} </a>
+    <a class="mdl-navigation__link" [routerLinkActive]="['active']" [routerLink]="['/library']"> {{'library'|translate}} </a>
+    <a class="mdl-navigation__link" [routerLinkActive]="['active']" [routerLink]="['/about']"> {{'about'|translate}} </a>
+  </nav>
+</mdl-layout-header-row>

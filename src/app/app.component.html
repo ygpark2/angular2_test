@@ -1,0 +1,25 @@
+<mdl-layout mdl-layout-mode="waterfall">
+  <mdl-layout-header>
+    <app-navbar></app-navbar>
+  </mdl-layout-header>
+  <div class="content-ribbon"></div>
+  <mdl-layout-content>
+    <div class="page-content">
+      <!-- Your content goes here -->
+      <div class="mdl-grid">
+        <div class="mdl-cell mdl-cell--2-col">
+          <!-- add content here -->
+        </div>
+        <div class="mdl-cell mdl-cell--8-col">
+          <!-- also here -->
+          <router-outlet></router-outlet>
+        </div>
+        <div class="mdl-cell mdl-cell--2-col">
+          <!-- and probably also here -->
+        </div>
+      </div>
+    </div>
+  </mdl-layout-content>
+      <app-footer></app-footer>
+</mdl-layout>
+

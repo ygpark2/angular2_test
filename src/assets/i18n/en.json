@@ -1,0 +1,13 @@
+{
+  "posts": "Posts",
+  "new-post": "New Post",
+  "edit-post": "Edit Post",
+  "view-post": "View Post",
+  "library": "Library",
+  "about": "About",
+  "signin": "Signin",
+  "signup": "Signup",
+  "logout": "Logout",
+  "search": "Search",
+  "welcome-back":"Welcome back,{{name}}"
+}

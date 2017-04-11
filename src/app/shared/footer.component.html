@@ -1,0 +1,17 @@
+<footer class="footer fixed-bottom">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<div class="btn-group btn-group-sm" role="group">
+					<a class="btn" [ngClass]="(isLanguage('ko')) ? 'btn-primary' : 'btn-secondary'" (click)="setLanguage('ko')">한국어</a>
+					<a class="btn" [ngClass]="(isLanguage('en')) ? 'btn-primary' : 'btn-secondary'" (click)="setLanguage('en')">영어</a>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<span class="text-muted">
+					Copyright: @hantsy
+				</span>
+			</div>
+		</div>
+	</div>
+</footer>
